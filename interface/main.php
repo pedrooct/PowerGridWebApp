@@ -1,18 +1,3 @@
-<?php
-session_start();
-
-//if(isset($_SESSION['email'])
-//{
-// load graph from mongoID
-//}
-//else {
-
-//}
-
-
-?>
-
-
 <html lang="pt-PT">
 <head>
 	<meta charset="utf-8">
