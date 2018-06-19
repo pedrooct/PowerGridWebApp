@@ -32,6 +32,9 @@ session_start();
 
 </head>
 <body>
+	<div>
+		<button style="margin-left:10%;margin-top:2%;" name="save" onclick="saveGraph()" class="buttonOp">Guardar Grapho</button>
+	</div>
 	<div class="login-page">
 		<h1>Power Grid Simulator</h1>
 		<div class="form">
@@ -54,9 +57,6 @@ session_start();
 
 	<div id="mynetwork" class="mynetwork">
 		<h1>Grapho</h1>
-	</div>
-	<div>
-		<button style="margin-left:10%;margin-bottom:2%;" name="save" onclick="saveGraph()" class="buttonOp">Guardar Grapho</button>
 	</div>
 	<script>
 	document.getElementById('fileField').addEventListener('change', loadGraph, false);

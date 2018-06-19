@@ -1,8 +1,20 @@
+
+@media only screen and (max-width: 920px){
+
+      .mynetwork{
+            width: 350px !important;
+            height: 550px !important;
+      }
+
+
+}
+
+
 .mynetwork {
       margin-right: auto;
       margin-left: auto;
-      width: 800px;
-      height: 800px;
+      width: 850px;
+      height: 850px;
       border: 1px solid lightgray;
       margin-top: 50px;
       margin-bottom: 50px;
@@ -32,6 +44,7 @@
 .login-page {
       width: 360px;
       /*padding: 8% 0 0;*/
+      margin-left: 10px;
       margin: auto;
 }
 .form {
