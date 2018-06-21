@@ -1,3 +1,19 @@
+<?php
+session_start();
+$hasAccount=0;
+if(isset($_SESSION['email']))
+{
+	$hasAccount=1;
+}
+?>
+<script type="text/javascript">
+var hasAccount= <?php echo $hasAccount?>;
+if(hasAccount==1)
+{
+	var email= "'"+<?php echo $_SESSION['email']?>+"'";
+	setEmailUser(email);
+}
+</script>
 <html lang="pt-PT">
 <head>
 	<meta charset="utf-8">
@@ -19,6 +35,14 @@
 <body>
 	<div>
 		<button style="margin-left:10%;margin-top:2%;" name="save" onclick="saveGraph()" class="buttonOp">Guardar Grapho</button>
+		<?php
+		if($hasAccount==1)
+		{
+			?>
+			<button style="margin-left:5%;margin-top:2%;" name="restoreGraph" onclick="restoreGraph()" class="buttonOp">Restaurar Grapho</button>
+			<?php
+		}
+		?>
 	</div>
 	<div class="login-page">
 		<h1>Power Grid Simulator</h1>
@@ -43,17 +67,28 @@
 	<div id="mynetwork" class="mynetwork">
 		<h1>Grapho</h1>
 	</div>
-	<script>
+	<div>
+		<div id="myModal" class="modal">
+			<!-- Modal content -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<p id=text></p>
+			</div>
+
+		</div>
+	</div>
+
+	<script type="text/javascript">
 	document.getElementById('fileField').addEventListener('change', loadGraph, false);
 	function connectNode(){
 		var from=document.getElementById("from").value;
 		var to=document.getElementById("to").value;
 		if(connect(from,to))
 		{
-			alert("Nós connectados");
+			notify("Nós connectados");
 		}
 		else {
-			alert("Nós não connectados");
+			notify("Nós não connectados");
 		}
 		displayGraph();
 	}
@@ -66,10 +101,10 @@
 		{
 			if(addNode(id,nome, tipo))
 			{
-				alert("Node criado: "+id+" "+"Nome: "+ nome);
+				notify("Node criado: "+id+" "+"Nome: "+ nome);
 			}
 			else {
-				alert("Algo correu mal!!");
+				notify("Algo correu mal !!");
 			}
 
 		}
@@ -97,6 +132,7 @@
 		document.body.appendChild(element);
 		element.click();
 		document.body.removeChild(element);
+		notify("Download com sucesso!");
 	}
 	function loadGraph(evt)
 	{
@@ -107,12 +143,34 @@
 			r.onload = function(e) {
 				var contents = e.target.result;
 				loadFile(contents);
+				notify("ficheiro lido!");
 				displayGraph();
 			}
 			r.readAsText(f);
 		} else {
-			alert("Failed to load file");
+			alert("Leitura do ficheiro falhou!!");
 		}
+	}
+	function notify(text)
+	{
+		document.getElementById('text').innerHTML = text;
+		var modal = document.getElementById('myModal');
+		var span = document.getElementsByClassName("close")[0];
+
+		modal.style.display = "block";
+
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	}
+	function restoreGraph()
+	{
+
 	}
 </script>
 

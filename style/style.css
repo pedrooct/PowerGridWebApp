@@ -1,4 +1,85 @@
 
+/*Pop-up javascript*/
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  /* padding-top: 100px; Location of the box */
+  left: 30%;
+  top: 10%;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto; Enable scroll if needed */
+  /*background-color: rgb(0,0,0); Fallback color */
+  /*background-color: rgba(0,0,0,0.4);  Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+  border-radius: 30px;
+  border: 1px solid lightgray;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+
+
+.info, .success, .warning, .error, .validation {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 10px 15px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+.info {
+  color: #00529B;
+  background-color: #BDE5F8;
+  background-image: url('https://i.imgur.com/ilgqWuX.png');
+}
+.success {
+  color: #4F8A10;
+  background-color: #DFF2BF;
+  background-image: url('https://i.imgur.com/Q9BGTuy.png');
+}
+.warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+  background-image: url('https://i.imgur.com/Z8q7ww7.png');
+}
+.error{
+  color: #D8000C;
+  background-color: #FFBABA;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+.validation{
+  color: #D63301;
+  background-color: #FFCCBA;
+  background-image: url('https://i.imgur.com/GnyDvKN.png');
+}
+
+
 @media only screen and (max-width: 920px){
 
   .mynetwork{
@@ -16,7 +97,7 @@
   border: 1px solid #fff;
   color: #fff;
   text-align: center;
-  font-size: 1.4em;
+  /*font-size: 1.4em;*/
   opacity: .8;
   padding: 20px 40px;
   text-decoration: none;

@@ -2,7 +2,24 @@
 var nodes = new vis.DataSet();
 var edges = new vis.DataSet();
 
+var emailUser="";
 
+
+function getEmailUser()
+{
+  return emailUser;
+}
+function setEmailUser(email)
+{
+  emailUser=email;
+}
+function restoreGraph()
+{
+  //https://code.google.com/archive/p/jsmemcached-client/       ????
+  JsMemcached.configure("localhost", 11211);
+  return JsMemcached.get("graph"+getEmailUser());
+
+}
 function getNodeID()
 {
   return nodes.length;
